@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class text {
+public class shuzu3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] xishus = new int[101];
@@ -23,16 +23,30 @@ public class text {
             }
         }
         //输出
+        String result = "";
         for (int i = xishus.length - 1; i >= 0; i--) {
             if (xishus[i] != 0) {
+                if (!result.isEmpty()) {
+                    if (xishus[i] >= 0) {
+                        result = result + "+";
+                    }
+                }
                 if (i == 1) {
-                    System.out.print(xishus[i] + "x" + "+");
+                    if (xishus[i] == 1) {
+                        result = result + "x";
+                    } else {
+                        result = result + xishus[i] + "x";
+                    }
                 } else if (i == 0) {
-                    System.out.print(xishus[i]);
+                    result = result + xishus[i];
                 } else {
-                    System.out.print(xishus[i] + "x" + i + "+");
+                    result = result + xishus[i] + "x" + i;
                 }
             }
+        }
+        System.out.println(result);
+        if(result.isEmpty()){
+            System.out.print(0);
         }
     }
 }
